@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TestTest</string>
+    <string name="logo_contentDescription">WD WorldCinema logo</string>
+    <string name="signin_hint_email">Email</string>
+    <string name="signin_hint_pass">Пароль</string>
+    <string name="signin_button_enter">Войти</string>
+    <string name="signin_button_register">Регистрация</string>
+
+    <string name="signup_hint_name">Имя</string>
+    <string name="signup_hint_lastName">Фамилия</string>
+</resources>
