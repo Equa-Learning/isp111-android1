@@ -88,7 +88,18 @@
                 android:textColor="@color/greyAF"
                 android:textColorHint="@color/greyA8"
                 android:textSize="18sp" />
-
+            <CheckBox
+                android:id="@+id/rememberMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Запомнить данные"
+                android:drawableStart="@drawable/check"
+                android:button="@null"
+                android:textColor="@color/greyAF"
+                android:drawablePadding="10dp"
+                android:textColorHint="@color/greyA8"
+                android:textSize="18sp"
+                ></CheckBox>
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
