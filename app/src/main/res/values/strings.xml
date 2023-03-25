@@ -8,4 +8,9 @@
 
     <string name="signup_hint_name">Имя</string>
     <string name="signup_hint_lastName">Фамилия</string>
+    <string name="signup_button_doRegister">Зарегистрироваться</string>
+    <string name="signup_button_haveAccount">У меня уже есть аккаунт</string>
+
+    <string name="back_button_back">Назад</string>
+
 </resources>

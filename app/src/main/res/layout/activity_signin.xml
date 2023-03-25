@@ -54,7 +54,7 @@
                 />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/signinEmailField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="72dp"
@@ -72,7 +72,7 @@
                 app:layout_constraintTop_toTopOf="@id/logo" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/signinPasswordField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -114,6 +114,7 @@
 
                 <Button
                     android:id="@+id/enter"
+                    android:textAllCaps="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
@@ -126,6 +127,7 @@
 
                 <Button
                     android:id="@+id/registration"
+                    android:textAllCaps="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
