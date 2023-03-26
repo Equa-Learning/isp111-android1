@@ -125,6 +125,23 @@
                 android:textColorHint="@color/greyA8"
                 android:textSize="18sp" />
 
+            <EditText
+                android:id="@+id/password2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+
+                android:autofillHints="password"
+
+                android:hint="@string/signin_hint_pass2"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:paddingHorizontal="16dp"
+
+                android:textColor="@color/greyAF"
+                android:textColorHint="@color/greyA8"
+                android:textSize="18sp" />
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

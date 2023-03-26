@@ -11,6 +11,7 @@ import java.util.regex.Pattern
 class SignupActivity : AppCompatActivity() {
     lateinit var mail: EditText
     lateinit var pass: EditText
+    lateinit var pass2: EditText
     lateinit var name: EditText
     lateinit var lname: EditText
 
@@ -25,6 +26,7 @@ class SignupActivity : AppCompatActivity() {
 
         mail=findViewById(R.id.email)
         pass=findViewById(R.id.password)
+        pass2=findViewById(R.id.password)
         name=findViewById(R.id.name)
         lname=findViewById(R.id.lastName)
     }
@@ -38,11 +40,18 @@ class SignupActivity : AppCompatActivity() {
 
         if( mail.text.toString().isNotEmpty()
             && pass.text.toString().isNotEmpty()
+            && pass2.text.toString().isNotEmpty()
             && name.text.toString().isNotEmpty()
             && lname.text.toString().isNotEmpty()
         ) {
+
             if (isEmailValid(mail.text.toString())) {
-                Toast.makeText(this, "Регистрация прошла успешно", Toast.LENGTH_SHORT).show()
+                if (pass.text.toString() == pass2.text.toString()) {
+                    Toast.makeText(this, "Регистрация прошла успешно", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Пароль и повтор не совпадают", Toast.LENGTH_SHORT).show()
+                }
+
             } else {
                 Toast.makeText(this,"ошибка при заполнении поля Email", Toast.LENGTH_SHORT).show()
             }

@@ -3,6 +3,7 @@
     <string name="logo_contentDescription">WD WorldCinema logo</string>
     <string name="signin_hint_email">Email</string>
     <string name="signin_hint_pass">Пароль</string>
+    <string name="signin_hint_pass2">Повтор пароля</string>
     <string name="signin_button_enter">Войти</string>
     <string name="signin_button_register">Регистрация</string>
 
