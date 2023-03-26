@@ -26,7 +26,7 @@ class SignupActivity : AppCompatActivity() {
 
         mail=findViewById(R.id.email)
         pass=findViewById(R.id.password)
-        pass2=findViewById(R.id.password)
+        pass2=findViewById(R.id.password2)
         name=findViewById(R.id.name)
         lname=findViewById(R.id.lastName)
     }
