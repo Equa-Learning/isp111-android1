@@ -1,11 +1,11 @@
-package com.example.testtest
+package com.example.testtest.activities
 
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.testtest.R
 import com.example.testtest.adapters.Actor_adapter
 import com.example.testtest.adapters.Frame_adapter
 import com.example.testtest.data.KlausActors

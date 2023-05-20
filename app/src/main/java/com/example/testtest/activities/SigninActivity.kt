@@ -1,4 +1,4 @@
-package com.example.testtest
+package com.example.testtest.activities
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -9,6 +9,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.testtest.R
 import java.util.regex.Pattern
 
 class SigninActivity : AppCompatActivity() {
@@ -104,7 +105,7 @@ class SigninActivity : AppCompatActivity() {
     }
 
     fun toKlaus() {
-        val intent = Intent(this@SigninActivity, KlausActivity::class.java)
+        val intent = Intent(this@SigninActivity, ChooseVersionActivity::class.java)
         startActivity(intent)
         finish()
     }

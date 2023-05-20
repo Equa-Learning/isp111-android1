@@ -1,4 +1,4 @@
-package com.example.testtest
+package com.example.testtest.activities
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.example.testtest.R
 import java.util.regex.Pattern
 
 class SignupActivity : AppCompatActivity() {

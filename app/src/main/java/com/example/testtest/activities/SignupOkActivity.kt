@@ -1,10 +1,11 @@
-package com.example.testtest
+package com.example.testtest.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
+import com.example.testtest.R
 
 class SignupOkActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

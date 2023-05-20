@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_indigo"
-    tools:context=".activities.BackToStartActivity">
+    tools:context=".activities.ChooseVersionActivity">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/mainscroll"
@@ -32,19 +32,38 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             >
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                android:text="Выберите вариант загрузки персонажей"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                />
             <Button
-                android:id="@+id/enter"
+                android:id="@+id/local"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:textAllCaps="false"
-                android:text="@string/back_button_back"
+                android:text="Локальный"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/orange"
-                android:onClick="goBack"
+                android:onClick="goToLocal"
                 />
-
+            <Button
+                android:id="@+id/network"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:textAllCaps="false"
+                android:text="Через ретрофит"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/orange"
+                android:onClick="goToNetwork"
+                />
         </LinearLayout>
 
 
