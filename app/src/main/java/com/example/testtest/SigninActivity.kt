@@ -73,7 +73,7 @@ class SigninActivity : AppCompatActivity() {
                 }
                 // проверяем что логин и пароль верные
                 if (checkAuth()) {
-                    toBackToStart()
+                    toKlaus()
                 } else {
                     val alert = AlertDialog.Builder(this)
                         .setTitle("Логин и пароль не соответствуют зарегистрированным")
@@ -103,8 +103,8 @@ class SigninActivity : AppCompatActivity() {
         return false;
     }
 
-    fun toBackToStart() {
-        val intent = Intent(this@SigninActivity, BackToStartActivity::class.java)
+    fun toKlaus() {
+        val intent = Intent(this@SigninActivity, KlausActivity::class.java)
         startActivity(intent)
         finish()
     }
