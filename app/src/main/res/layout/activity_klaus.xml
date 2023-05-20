@@ -105,6 +105,7 @@
                 android:id="@+id/klaus_frames"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal"
                 />
@@ -119,7 +120,14 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/klaus_actors"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:paddingLeft="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                />
         </LinearLayout>
 
 
