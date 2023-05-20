@@ -13,5 +13,5 @@
     <string name="signup_button_haveAccount">У меня уже есть аккаунт</string>
 
     <string name="back_button_back">Назад</string>
-
+    <string name="signup_button_back">К экрану входа</string>
 </resources>
