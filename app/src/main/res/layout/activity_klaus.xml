@@ -44,7 +44,7 @@
                     android:contentDescription="Клаус"
 
                     android:minHeight="134dp"
-                    android:scaleType="matrix"
+                    android:scaleType="centerCrop"
 
                     android:src="@drawable/klaus"
                     app:layout_constraintHorizontal_bias="0.5"
