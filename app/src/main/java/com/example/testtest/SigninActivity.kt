@@ -71,10 +71,16 @@ class SigninActivity : AppCompatActivity() {
                 } else {
                     deleteAllSavedPrefs()
                 }
-
-                val intent = Intent(this@SigninActivity, BackToStartActivity::class.java)
-                startActivity(intent)
-                finish()
+                // проверяем что логин и пароль верные
+                if (checkAuth()) {
+                    toBackToStart()
+                } else {
+                    val alert = AlertDialog.Builder(this)
+                        .setTitle("Логин и пароль не соответствуют зарегистрированным")
+                        .setPositiveButton("OK", null)
+                        .create()
+                        .show()
+                }
             } else {
                 Toast.makeText(this, "ошибка при заполнении поля Email", Toast.LENGTH_SHORT).show()
             }
@@ -85,6 +91,22 @@ class SigninActivity : AppCompatActivity() {
                 .create()
                 .show()
         }
+    }
+
+    fun checkAuth(): Boolean {
+        if (
+            pref?.getString("userEmail","") ?: "" == mail.text.toString()
+            && pref?.getString("userPass","") ?: "" == pass.text.toString()
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+    fun toBackToStart() {
+        val intent = Intent(this@SigninActivity, BackToStartActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     fun toRegistragion(view: View) {

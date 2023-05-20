@@ -75,7 +75,7 @@ class SignupActivity : AppCompatActivity() {
                         mail.text.toString(), pass.text.toString(), name.text.toString(), lname.text.toString()
                     )
 
-                    val intent = Intent(this@SignupActivity, SignUpOk::class.java)
+                    val intent = Intent(this@SignupActivity, SignupOkActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {

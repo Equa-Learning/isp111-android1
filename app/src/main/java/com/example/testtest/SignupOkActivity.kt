@@ -20,6 +20,7 @@ class SignupOkActivity : AppCompatActivity() {
                 goToSignIn()
             }
         }
+        timer.start()
     }
 
     fun goToSignIn(){
