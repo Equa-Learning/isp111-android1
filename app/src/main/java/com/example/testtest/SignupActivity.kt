@@ -17,7 +17,6 @@ class SignupActivity : AppCompatActivity() {
     lateinit var lname: EditText
 
     var pref: SharedPreferences? = null
-    var users: SharedPreferences? = null
 
     val pattern = ("[a-z]{1,100}"+"@"+"[a-z]{1,6}"+"\\."+"[a-z]{1,5}")
     fun isEmailValid(text: String):Boolean {
