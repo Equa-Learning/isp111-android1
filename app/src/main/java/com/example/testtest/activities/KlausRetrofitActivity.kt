@@ -3,6 +3,7 @@ package com.example.testtest.activities
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -55,9 +56,11 @@ class KlausRetrofitActivity : AppCompatActivity() {
         })
 
         pref = getSharedPreferences("TABLEE", MODE_PRIVATE)
-        name=findViewById(R.id.username)
+        name = findViewById(R.id.username)
         name.setText(pref?.getString("userName", "") + " " + pref?.getString("userLastName", ""))
+    }
 
-
+    fun onBackPressed(view: View) {
+        finish()
     }
 }

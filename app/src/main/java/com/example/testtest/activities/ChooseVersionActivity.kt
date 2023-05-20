@@ -15,12 +15,15 @@ class ChooseVersionActivity : AppCompatActivity() {
     fun goToLocal(view: View){
         var intent = Intent(this@ChooseVersionActivity, KlausActivity::class.java)
         startActivity(intent)
-        finish()
+        //finish()
     }
 
     fun goToNetwork(view: View){
         var intent = Intent(this@ChooseVersionActivity, KlausRetrofitActivity::class.java)
         startActivity(intent)
+        //finish()
+    }
+    fun onBackPressed(view: View) {
         finish()
     }
 }

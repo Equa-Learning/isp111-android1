@@ -1,14 +1,14 @@
 package com.example.testtest.activities
 
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.example.testtest.R
-import java.util.regex.Pattern
+import com.example.testtest.application.UserInputCheckStatus
+import com.example.testtest.application.UserService
 
 class SignupActivity : AppCompatActivity() {
     lateinit var mail: EditText
@@ -17,76 +17,58 @@ class SignupActivity : AppCompatActivity() {
     lateinit var name: EditText
     lateinit var lname: EditText
 
-    var pref: SharedPreferences? = null
-
-    val pattern = ("[a-z]{1,100}"+"@"+"[a-z]{1,6}"+"\\."+"[a-z]{1,5}")
-    fun isEmailValid(text: String):Boolean {
-        return Pattern.compile(pattern).matcher(text).matches()
-    }
+    val userService: UserService = UserService()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        mail=findViewById(R.id.email)
-        pass=findViewById(R.id.password)
-        pass2=findViewById(R.id.password2)
-        name=findViewById(R.id.name)
-        lname=findViewById(R.id.lastName)
-        pref = getSharedPreferences("TABLEE", MODE_PRIVATE)
-        if (pref?.getBoolean("signinDoRemember", false) ?: false) {
+        mail = findViewById(R.id.email)
+        pass = findViewById(R.id.password)
+        pass2 = findViewById(R.id.password2)
+        name = findViewById(R.id.name)
+        lname = findViewById(R.id.lastName)
 
-        }
+        userService.Init(getSharedPreferences("TABLEE", MODE_PRIVATE))
     }
 
-    private fun tryRestore() {
-        mail.setText(pref?.getString("signinEmail", ""))
-        pass.setText(pref?.getString("signinPass", ""))
-    }
-
-
-
-    private fun saveUser(mail: String, pass: String, name: String, lastname: String) {
-        val editor = pref?.edit()
-        editor?.putString("userEmail", mail)
-        editor?.putString("userPass", pass)
-        editor?.putString("userName", name)
-        editor?.putString("userLastName", lastname)
-        editor?.apply()
-    }
-
-    fun toSignin(view: View) {
+    fun goToSignIn(view: View) {
         val intent = Intent(this@SignupActivity, SigninActivity::class.java)
         startActivity(intent)
         finish()
     }
-    fun doRegistragion(view: View) {
 
-        if( mail.text.toString().isNotEmpty()
-            && pass.text.toString().isNotEmpty()
-            && pass2.text.toString().isNotEmpty()
-            && name.text.toString().isNotEmpty()
-            && lname.text.toString().isNotEmpty()
-        ) {
+    fun doRegistration(view: View) {
+        val mailString = mail.text.toString()
+        val passString = pass.text.toString()
+        val pass2String = pass2.text.toString()
+        val nameString = name.text.toString()
+        val lnameString = lname.text.toString()
 
-            if (isEmailValid(mail.text.toString())) {
-                if (pass.text.toString() == pass2.text.toString()) {
-                    saveUser(
-                        mail.text.toString(), pass.text.toString(), name.text.toString(), lname.text.toString()
-                    )
+        if (nameString.isNullOrBlank() || lnameString.isNullOrBlank())
+            Toast.makeText(this, "Не все поля заполнены", Toast.LENGTH_SHORT).show()
 
-                    val intent = Intent(this@SignupActivity, SignupOkActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    Toast.makeText(this, "Пароль и повтор не совпадают", Toast.LENGTH_SHORT).show()
-                }
+        var userInputCheckStatus = userService.credentialsStatus(mailString, passString, pass2String)
+        when (userInputCheckStatus) {
+            UserInputCheckStatus.Empty
+            -> Toast.makeText(this, "Не все поля заполнены", Toast.LENGTH_SHORT).show()
 
-            } else {
-                Toast.makeText(this,"ошибка при заполнении поля Email", Toast.LENGTH_SHORT).show()
+            UserInputCheckStatus.WrongEmail
+            -> Toast.makeText(this, "Ошибка при заполнении поля Email", Toast.LENGTH_SHORT).show()
+
+            UserInputCheckStatus.PasswordsNotEqual
+            -> Toast.makeText(this, "Пароль и повтор не совпадают", Toast.LENGTH_SHORT).show()
+
+            UserInputCheckStatus.WrongEmailOrPassword
+            -> throw IllegalArgumentException("При регистрации не может быть неверный пароль")
+
+            UserInputCheckStatus.OK -> {
+                userService.saveUser(mailString, passString, nameString, lnameString)
+
+                val intent = Intent(this@SignupActivity, SignupOkActivity::class.java)
+                startActivity(intent)
+                finish()
             }
-        } else {
-            Toast.makeText(this,"Не все поля заполнены", Toast.LENGTH_SHORT).show()
         }
     }
 }
